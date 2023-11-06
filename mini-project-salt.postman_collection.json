@@ -1,0 +1,131 @@
+{
+	"info": {
+		"_postman_id": "c281cad8-5cfd-4fbb-9644-c7a6abed8fcd",
+		"name": "mini-project-salt",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21291482"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/konsumen/getAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/konsumen/getAll",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"konsumen",
+						"getAll"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/konsumen/create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nama\" : \"Muhamad Kholik\",\r\n    \"alamat\" : \"Kp.Cikawung 003/003\",\r\n    \"kota\" : \"Garut\",\r\n    \"provinsi\" : \"JawaBarat\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/konsumen/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"konsumen",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/konsumen/getById/1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/konsumen/getById/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"konsumen",
+						"getById",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/konsumen/update/1",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nama\" : \"Muhamad Kholik Nur\",\r\n    \"alamat\" : \"Kp.Cikawung 003/003\",\r\n    \"kota\" : \"Garut\",\r\n    \"provinsi\" : \"JawaBarat\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/konsumen/update/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"konsumen",
+						"update",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/konsumen/delete/1",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/konsumen/delete/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"konsumen",
+						"delete",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
