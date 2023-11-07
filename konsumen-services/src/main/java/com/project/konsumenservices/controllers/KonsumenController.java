@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.project.konsumenservices.models.Konsumen;
@@ -25,9 +26,14 @@ public class KonsumenController {
     private KonsumenService konsumenService;
 
     @GetMapping("/getAll")
-    public ResponseEntity<List<Konsumen>> getAllKonsumen() {
+    public ResponseEntity<List<Konsumen>> getAllKonsumen(@RequestParam(name = "nama", required = false) String nama,
+    @RequestParam(name = "kota", required = false) String kota) {
+        KonsumenRequest f = new KonsumenRequest();
         try {
-            List<Konsumen> konsumenList = konsumenService.getAllKonsumen();
+            f.setNama(nama);
+            f.setKota(kota);
+            
+            List<Konsumen> konsumenList = konsumenService.getAllKonsumenByFilter(f);
             return new ResponseEntity<>(konsumenList, HttpStatus.OK);
         } catch (Exception e) {
             e.printStackTrace();

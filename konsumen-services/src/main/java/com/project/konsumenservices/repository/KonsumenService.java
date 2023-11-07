@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.project.konsumenservices.models.Konsumen;
+import com.project.konsumenservices.models.KonsumenRequest;
 
 @Service
 public class KonsumenService {
@@ -43,17 +44,26 @@ public class KonsumenService {
     }
   }
 
-  public List<Konsumen> getAllKonsumen () throws Exception {
+  public List<Konsumen> getAllKonsumenByFilter (KonsumenRequest f) throws Exception {
     Connection conn = null;
     PreparedStatement pStatement = null;
     ResultSet rs = null;
     List<Konsumen> listkonsumen = null;
 
     String SQL = " SELECT id_konsumen, nama, alamat, kota, provinsi, tgl_registrasi, status " +
-                 " FROM konsumen";
+                 " FROM konsumen" +
+                 " WHERE 1 = 1 ";
 
     try {
       conn = this.ds.getConnection();
+
+      if(f.getNama() != null && f.getNama() != ""){
+        SQL += " AND LOWER(nama) LIKE LOWER('%" + f.getNama() + "%')";
+      }
+      if(f.getKota() != null && f.getKota() != ""){
+        SQL += " AND LOWER(kota) LIKE LOWER('%" + f.getKota() + "%')";
+      }
+
       pStatement = conn.prepareStatement(SQL);
 
       rs = pStatement.executeQuery();
