@@ -14,7 +14,7 @@ services:
     restart: always
     image: jenkins/jenkins
     ports:
-      - "8080:8080"
+      - "8086:8080"
     depends_on:
       - sonarqube
     networks:
