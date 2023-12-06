@@ -1,0 +1,25 @@
+version: '3.7'
+
+services:
+  sonarqube:
+    container_name: sonarqube
+    restart: always
+    image: sonarqube
+    ports:
+      - "9000:9000"
+    networks:
+      - net1
+  jenkins:
+    container_name: jenkins
+    restart: always
+    image: jenkins/jenkins
+    ports:
+      - "8080:8080"
+    depends_on:
+      - sonarqube
+    networks:
+      - net1
+
+networks:
+  net1:
+    driver: bridge
